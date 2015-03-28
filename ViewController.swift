@@ -62,6 +62,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Swiped_Click(sender: AnyObject) {
+        let gi = GeneralInfoVO()
+        gi.DepartureTime = NSDate()
+        gi.DestinationAirport = "ORD"
+        gi.OriginatingAirport = "MCO"
+        gi.FlightNum = "101"
+        gi.companyId = 1006
+        gi.crewId = 104
+        gi.deviceId = UIDevice.currentDevice().identifierForVendor.UUIDString
+        _handler.GeneralInfomation = gi
         let ok = _handler.StartSwipedTransaction(TransactionTypes.Purchase.rawValue, amt:"18.88", currency:"USD", itemId:1002,  seatNum:"21F", fareClass:"First Class",ffStatus:"Platinum")
         if(ok)
         {
@@ -74,6 +83,15 @@ class ViewController: UIViewController {
     }
         
     @IBAction func NFC_Click(sender: AnyObject) {
+        let gi = GeneralInfoVO()
+        gi.DepartureTime = NSDate()
+        gi.DestinationAirport = "ORD"
+        gi.OriginatingAirport = "MCO"
+        gi.FlightNum = "101"
+        gi.companyId = 1006
+        gi.crewId = 104
+        gi.deviceId = UIDevice.currentDevice().identifierForVendor.UUIDString
+        _handler.GeneralInfomation = gi
         if(_handler.StartNFCTransaction(TransactionTypes.Purchase.rawValue, amt:"18.88", currency:"USD", itemId:1002,  seatNum:"21F", fareClass:"First Class",ffStatus:"Platinum"))
         {
             txtLog.text = txtLog.text + _handler.TrackData3 + "\n"
